@@ -4,9 +4,6 @@ import { ThemeProvider } from "./context/theme-provider"
 import WeatherDashboard from "./pages/weather-dashboard"
 import City from "./pages/city"
 
-
-
-
 function App() {
  
   return (
@@ -22,5 +19,4 @@ function App() {
     </BrowserRouter>
   )
 }
-
 export default App
