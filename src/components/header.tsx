@@ -3,7 +3,7 @@ import { Moon, Sun } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();// hook provided by ThemeProvider
   const isDark = theme === "dark";
 
   return (

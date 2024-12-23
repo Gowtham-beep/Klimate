@@ -3,10 +3,13 @@ import { BrowserRouter,Routes,Route} from "react-router-dom"
 import { ThemeProvider } from "./context/theme-provider"
 import WeatherDashboard from "./pages/weather-dashboard"
 import City from "./pages/city"
+import {QueryClientProvider,QueryClient} from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+const queryClient = new QueryClient()
 
 function App() {
- 
-  return (
+ return (
+    <QueryClientProvider client={queryClient}>
     <BrowserRouter>
     <ThemeProvider defaultTheme="dark">
     <Layout>
@@ -17,6 +20,8 @@ function App() {
     </Layout>
     </ThemeProvider>
     </BrowserRouter>
+    <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   )
 }
 export default App
