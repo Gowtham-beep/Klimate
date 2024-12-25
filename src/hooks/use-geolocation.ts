@@ -8,6 +8,7 @@ interface GeoLocationState{
 }
 
 export function useGeolocation(){
+    //initial state
     const [locationData,setLocationData]=useState<GeoLocationState>({
         coordinates:null,
         error:null,
