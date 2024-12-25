@@ -5,6 +5,8 @@ import { Coordinates } from '../api/types';
 import WeatherSkeleton from '@/components/loading-skeleton';
 import { Alert,AlertDescription,AlertTitle } from '@/components/ui/alert';
 import { useForcastQuery, useReverseGeoCodeQuery, useWeatherQuery } from '@/hooks/use-weather';
+import { CurrentWeather } from '@/components/current-weather';
+
 
 const WeatherDashboard = () => {
   const {
@@ -63,10 +65,11 @@ const WeatherDashboard = () => {
     </Alert>
     )
   }
-  const locationName=weatherQuery.data?.name
+  
+  const locationName = locationQuery.data?.[0];
 
   console.log(locationName)
-  
+
   if(weatherQuery.error||forecastQuery.error){
     return(
       <Alert variant="destructive">
@@ -103,7 +106,17 @@ const WeatherDashboard = () => {
           <RefreshCcw className={`h-4 w-4 ${weatherQuery.isFetching?"animate-spin":""}`}/>
         </Button>
       </div>
-      {/* Current and Hourly weather */}
+      <div className='grid gap-6'>
+        <CurrentWeather data={weatherQuery.data}
+        locationName={locationName}
+        />
+        {/* current weather */}
+        {/* hourly temprature */}
+      </div>
+      <div>
+        {/* details */}
+        {/* forecast */}
+      </div>
     </div>
   )
 }
