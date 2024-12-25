@@ -6,6 +6,7 @@ import WeatherSkeleton from '@/components/loading-skeleton';
 import { Alert,AlertDescription,AlertTitle } from '@/components/ui/alert';
 import { useForcastQuery, useReverseGeoCodeQuery, useWeatherQuery } from '@/hooks/use-weather';
 import { CurrentWeather } from '@/components/current-weather';
+import { HourlyTemperature } from '@/components/hourly-temprature';
 
 
 const WeatherDashboard = () => {
@@ -92,8 +93,10 @@ const WeatherDashboard = () => {
   }
 
   return (
-    <div>
+    <div className='space-x-4'>
       {/* Fav Cities */}
+     
+      {/* current weather */}
       <div className='flex items-center justify-between'>
         <h1 className='text-xl font-bold tracking-tight'
         >My loactions</h1>
@@ -106,16 +109,22 @@ const WeatherDashboard = () => {
           <RefreshCcw className={`h-4 w-4 ${weatherQuery.isFetching?"animate-spin":""}`}/>
         </Button>
       </div>
+
       <div className='grid gap-6'>
+        <div className='flex flex-col lg:flex-row gap-4'>
         <CurrentWeather data={weatherQuery.data}
         locationName={locationName}
         />
-        {/* current weather */}
         {/* hourly temprature */}
-      </div>
-      <div>
+        <HourlyTemperature data={forecastQuery.data} />
+        
+
+        </div>
+      
+        <div>
         {/* details */}
         {/* forecast */}
+        </div>
       </div>
     </div>
   )
