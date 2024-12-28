@@ -2,7 +2,6 @@ import Layout from "./components/Layout"
 import { BrowserRouter,Routes,Route} from "react-router-dom"
 import { ThemeProvider } from "./context/theme-provider"
 import WeatherDashboard from "./pages/weather-dashboard"
-import City from "./pages/city"
 import {QueryClientProvider,QueryClient} from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 const queryClient = new QueryClient({
@@ -25,8 +24,7 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/"element={<WeatherDashboard/>}/>
-        <Route path="/city/:cityName"element={<City/>}/>
-      </Routes>
+        </Routes>
     </Layout>
     </ThemeProvider>
     </BrowserRouter>
