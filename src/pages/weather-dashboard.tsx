@@ -70,8 +70,6 @@ const WeatherDashboard = () => {
   
   const locationName = locationQuery.data?.[0];
 
-  console.log(locationName)
-
   if(weatherQuery.error||forecastQuery.error){
     return(
       <Alert variant="destructive">
@@ -95,10 +93,7 @@ const WeatherDashboard = () => {
 
   return (
     <div className='space-x-4'>
-      {/* Fav Cities */}
-     
-      {/* current weather */}
-      <div className='flex items-center justify-between'>
+     <div className='flex items-center justify-between'>
         <h1 className='text-xl font-bold tracking-tight'
         >My loactions</h1>
         <Button
